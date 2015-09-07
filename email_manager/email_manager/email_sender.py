@@ -75,6 +75,8 @@ class EmailSender(object):
             return False, "Connection Error: %s" % e.message
         except smtplib.SMTPAuthenticationError, e:
             return False, "Auth Error: %s" % e.message
+        except Exception, e:
+            return False, "Auth Error: %s" % e.message
         return True, "success"
 
 if __name__ == '__main__':
